@@ -6,15 +6,16 @@ import { NewsletterSignup } from "~/components/ui/NewsletterSignup";
 import { BeeMascot } from "~/components/ui/BeeMascot";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = posts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
   const related = posts.filter((p) => p.category === post.category && p.id !== post.id).slice(0, 3);
