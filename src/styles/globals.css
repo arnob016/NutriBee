@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Honey palette ── */
+  --color-honey-50: #fffbeb;
+  --color-honey-100: #fef3c7;
+  --color-honey-200: #fde68a;
+  --color-honey-300: #fcd34d;
+  --color-honey-400: #fbbf24;
+  --color-honey-500: #f59e0b;
+  --color-honey-600: #d97706;
+  --color-honey-700: #b45309;
+  --color-honey-800: #92400e;
+  --color-honey-900: #78350f;
+
+  /* ── Warm amber accents ── */
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fb923c;
+  --color-amber-500: #f97316;
+  --color-amber-600: #ea580c;
+
+  /* ── Cream ── */
+  --color-cream: #fefce8;
+
+  /* ── Charcoal — bee stripes ── */
+  --color-charcoal-50:  #fafaf9;
+  --color-charcoal-100: #f5f5f4;
+  --color-charcoal-200: #e7e5e4;
+  --color-charcoal-300: #d6d3d1;
+  --color-charcoal-400: #a8a29e;
+  --color-charcoal-500: #78716c;
+  --color-charcoal-600: #57534e;
+  --color-charcoal-700: #44403c;
+  --color-charcoal-800: #292524;
+  --color-charcoal-900: #1c1917;
+
+  /* ── Forest green ── */
+  --color-forest-50:  #f0fdf4;
+  --color-forest-100: #dcfce7;
+  --color-forest-500: #22c55e;
+  --color-forest-600: #16a34a;
+  --color-forest-700: #15803d;
+
+  /* ── Typography ── */
+  --font-sans: var(--font-nunito), "Nunito", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Global base ── */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Hex clip-path shapes ── */
+.hex {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.hex-flat {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* ── Bee float animation ── */
+@keyframes bee-float {
+  0%, 100% { transform: translateY(0)   rotate(-2deg) scale(1);    }
+  33%       { transform: translateY(-10px) rotate(2deg) scale(1.02); }
+  66%       { transform: translateY(-5px)  rotate(-1deg) scale(0.99);}
+}
+.bee-float {
+  animation: bee-float 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Hex cell appear ── */
+@keyframes hex-appear {
+  from { opacity: 0; transform: scale(0.75); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+.hex-appear {
+  animation: hex-appear 0.35s ease-out forwards;
+}
+
+/* ── Honey drip (used in tracker) ── */
+@keyframes honey-rise {
+  from { height: 0;    }
+  to   { height: 100%; }
+}
+
+/* ── Gradient text utility ── */
+.gradient-gold {
+  background: linear-gradient(135deg, #f59e0b 0%, #fb923c 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
